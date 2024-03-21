@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversión</title>
+</head>
+<body>
+    <h1>Calculadora de Conversión</h1>
+    <h2>Temperatura</h2>
+    <label for="celsius">Celsius:</label>
+    <input type="number" id="celsius" step="any">
+    <button onclick="convertToFahrenheit()">Convertir a Fahrenheit</button>
+    <div id="fahrenheitResult"></div>
+    <br>
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="number" id="fahrenheit" step="any">
+    <button onclick="convertToCelsius()">Convertir a Celsius</button>
+    <div id="celsiusResult"></div>
+    <h2>Moneda</h2>
+    <label for="usd">Dólares:</label>
+    <input type="number" id="usd" step="any">
+    <button onclick="convertToPesosMexicanos()">Convertir a Pesos Mexicanos</button>
+    <div id="mxnResult"></div>
+    <br>
+    <label for="mxn">Pesos Mexicanos:</label>
+    <input type="number" id="mxn" step="any">
+    <button onclick="convertToUSD()">Convertir a Dólares</button>
+    <div id="usdResult"></div>
+
+    <script>
+        function convertToFahrenheit() {
+            var celsius = parseFloat(document.getElementById("celsius").value);
+            var fahrenheit = (celsius * 9 / 5) + 32;
+            document.getElementById("fahrenheitResult").innerHTML = "Fahrenheit: " + fahrenheit.toFixed(2);
+        }
+
+        function convertToCelsius() {
+            var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+            var celsius = (fahrenheit - 32) * 5 / 9;
+            document.getElementById("celsiusResult").innerHTML = "Celsius: " + celsius.toFixed(2);
+        }
+
+        function convertToPesosMexicanos() {
+            var usd = parseFloat(document.getElementById("usd").value);
+            var mxn = usd * 20; // Suponiendo que 1 USD = 20 MXN
+            document.getElementById("mxnResult").innerHTML = "Pesos Mexicanos: " + mxn.toFixed(2);
+        }
+
+        function convertToUSD() {
+            var mxn = parseFloat(document.getElementById("mxn").value);
+            var usd = mxn / 20; // Suponiendo que 1 USD = 20 MXN
+            document.getElementById("usdResult").innerHTML = "Dólares: " + usd.toFixed(2);
+        }
+    </script>
+</body>
+</html>
